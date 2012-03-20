@@ -1,4 +1,18 @@
 <?php
+add_action( 'init', 'create_post_type' );
+function create_post_type() {
+	register_post_type( 'study',
+		array(
+			'labels' => array(
+				'name' => __( 'study' ),
+				'singular_name' => __( 'Study' )
+			),
+		'public' => true,
+		'has_archive' => true,
+		)
+	);
+}
+
 /**
  * activate theme options
  */
