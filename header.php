@@ -40,7 +40,7 @@
 	<link rel="stylesheet/less" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/themes/<?php echo $less_theme ?>.less"><!-- replace with your main style less theme -->
 	<script src="<?php bloginfo('template_directory'); ?>/js/less-1.2.2.min.js" type="text/javascript"></script><!-- less script cfr. http://lesscss.org/#about -->
 	
-	<script src="<?php bloginfo('template_directory'); ?>/js/Juice.0.min.js" type="text/javascript"></script><!-- less script cfr. http://lesscss.org/#about -->
+	<!-- script src="<?php bloginfo('template_directory'); ?>/js/Juice.0.min.js" type="text/javascript"></script>less script cfr. http://lesscss.org/#about -->
 	
 	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
@@ -51,6 +51,7 @@
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-toplink.js""></script><!-- top link plugin -->
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-scrollspy.js""></script><!-- bootstrap-like scrool spy plugin -->
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-tooltipsy.min.js""></script><!-- tipsy like tooltip plugin from github -->
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/bootstrap-modal.js""></script><!-- bootstrap modal plugin -->
 	
 	<script type="text/javascript">
 		$(window).load(function() {
@@ -94,9 +95,9 @@
 				<div id="logo-outer" class="grid_3 outer outer_gain_1">
 					<a href="logo"><div id="logo"></div></a><!-- the logo -->
 				</div> 
-				<div id="menu-pages-outer" class="grid_8 outer outer_gain_1"><!-- the page menu -->
+				<div id="menu-pages-outer" class="grid_8 outer "><!-- the page menu -->
 					<div id="menu-pages" class="inner">
-						
+						 
 						<ul>
 							<?php
 							$category = get_category_by_slug( 'menu-page' );
@@ -107,11 +108,10 @@
 							);
 							
 							$categories=get_categories($args);
-							
-														
-							foreach($categories as $category) { 
+																					
+							foreach($categories as $k=>$category) { 
 								echo '
-									<li class="menu-' . $category->slug . ( is_category( $category->term_id )? " menuCurrent":"" ) .' ">
+									<li class="menu-' . $category->slug . ( is_category( $category->term_id )? " menuCurrent": ( $k == 0 && is_home()?" menuCurrent":"" ) ) .' ">
 										<div class="icon-outer"><div class="icon"></div></div>
 										<a href="' . get_category_link( $category->term_id ) . '" title="' . $category->description . '">' . $category->name.'</a>
 									</li>	
@@ -123,7 +123,7 @@
 						</ul>
 					</div>
 				</div>
-				<div id="menu-settings-outer" class="grid_1 outer outer_gain_2"><!-- the page menu -->
+				<div id="menu-settings-outer" class="grid_1 outer outer_gain_3"><!-- the page menu -->
 					<div id="menu-settings" class="inner">
 						<ul>
 				
@@ -155,9 +155,53 @@
 								</div>
 								<a href="#" onclick="return false;" ><?php echo $q_config['language_name'][ $q_config['language'] ] ?></a>
 							</li>
+							
+							<?php if ( !is_user_logged_in() ): ?>
+							
+							<li id="menu-login">
+								<div class="icon-outer"><div class="icon"></div></div>
+								<a data-toggle="modal" href="#login">LOGIN</a>
+							</li>
+							
+							<?php endif; ?>
+							
 						</ul>
+						
+						
+						
 					</div>
+					<?php if ( is_user_logged_in() ): ?>
+						
+					<!-- note: absolute positioned logout -->
+					<div id="logout-outer">
+						<div id="logout-inner">
+							<a href="<?php echo  get_admin_url()?>">admin</a>
+							<a href="<?php echo wp_logout_url( home_url() )?>">logout</a>
+						</div>
+					</div>
+						
+						
+					<?php endif; ?>
 				</div>
 			</div>
 			<div class="clear"></div>
 		</header>
+		
+		<?php if ( !is_user_logged_in() ): ?>
+		
+		<div class="modal" id="login" style="display:none">
+			<div class="modal-header">
+    			<a class="close" data-dismiss="modal">×</a>
+    			<h3>Login</h3>
+  			</div>
+  			<div class="modal-body">
+			 
+				<?php wp_login_form( $args ); ?>
+		
+  			</div>
+			
+		</div>
+		
+		
+		
+		<?php endif; ?>

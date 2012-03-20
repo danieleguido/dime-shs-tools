@@ -15,7 +15,11 @@
  	Juice.adapt.sidebar(); // fix sidebar height
 	Juice.tooltip.init(); // initialize tooltips
 	Juice.scroll.init(); // activate smooth scrolling
+	Juice.modal.init(); // activate modals; KEEP AFTER SCROLL
+	
 	Juice.language.init();
+	
+	Juice.console.log();
 	$("#other-projects").click( Juice.projects.toggle );
  }
  
@@ -30,6 +34,17 @@
  Juice.adapt.update = function( i, width ){
  		
  }
+ 
+ Juice.console = {items:[]};
+ Juice.console.add = function( k,v ){
+ 	Juice.console.items.push({k:k,v:v});
+ }
+ Juice.console.log = function(){
+ 	for ( var i in Juice.console.items ){
+ 		console.log( i, Juice.console.items[i].k, Juice.console.items[i] );	
+ 	}	
+ }
+ 
  /** using .alternate object, display and allow language switch */
  Juice.language.init = function(){
  	$( "#menu-language" ).mouseenter( function(){
@@ -42,6 +57,15 @@
  	}).mouseleave( function(){
  		$("#menu-language .alternate").hide()
  	});
+ }
+ 
+ Juice.modal = {};
+ Juice.modal.init = function(){
+ 	Juice.console.add( 'modal.init', 'started' );
+ 	$('#login').modal({
+ 		show:false
+ 	});
+ 	$('#menu-login a').unbind().click(function(event){$('#login').modal('show'); return false;});
  }
  
  Juice.projects = { init:null, hide:null, show:null, hidden: true };

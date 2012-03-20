@@ -1,7 +1,8 @@
 <?php
 /**
  * The category template file.
- * It contains all post about this categories.
+ * It contains all post about selected categories.
+ * A file category-%slug%.php will override this structure completely (cfr category-studies).
  */
 get_header(); ?>	
 <?php // unabled, testget_sidebar(); ?>
@@ -21,6 +22,7 @@ get_header(); ?>
 			<div id="view" class="grid_12">
 				<div id="sidebar-outer" class="grid_3 outer">
 					<?php get_sidebar ();?>
+					
 				</div>
 				<div id="page-outer" class="grid_9 outer">
 					<div id="page" class="inner">
