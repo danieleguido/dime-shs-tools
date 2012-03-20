@@ -8,22 +8,23 @@
  
  /* call this function on your window.onload method */
  Juice.init = function(){
- 	console.log( window.location.hash );
  	if( window.location.hash == "#suite" ){
  		Juice.projects.toggle();
  	}
- 	Juice.adapt.sidebar(); // fix sidebar height
+ 	Juice.adapt.init(); // fix sidebar height
 	Juice.tooltip.init(); // initialize tooltips
 	Juice.scroll.init(); // activate smooth scrolling
+	Juice.sidebar.init(); // activate flexible sidebar (fixed / absolute accordin to width
 	Juice.modal.init(); // activate modals; KEEP AFTER SCROLL
+	Juice.language.init(); // startr language
+	Juice.console.log(); // printout init logging
 	
-	Juice.language.init();
-	
-	Juice.console.log();
 	$("#other-projects").click( Juice.projects.toggle );
  }
  
- 
+ Juice.adapt.init = function(){
+ 	Juice.adapt.sidebar();
+ }
  
  Juice.adapt.sidebar = function(){
  	var sideh = Math.max($("#sidebar").height(),$("#page.inner").height());
@@ -32,9 +33,71 @@
  }
  
  Juice.adapt.update = function( i, width ){
- 		
+ 	Juice.console.add( "adapt.update", {i:i, width:width} );	
+ 	if( i == 0 ){
+ 		Juice.sidebar.makeFixed();
+ 	} else {
+ 		Juice.sidebar.makeFlexible();
+ 	}
+ 	
  }
  
+ 
+ /**
+  * sidebar behaviour
+  */
+ Juice.sidebar = { isFlexible:null };
+ 
+ Juice.sidebar.init = function(){ 
+ 	Juice.console.add( "sidebar.init", Juice.sidebar.isFlexible );
+ 	if ( Juice.sidebar.isFlexible ) {
+ 		$('#sidebar ul').scrollToFixed({
+		   marginTop:
+	     $('.header').outerHeight() + 15,
+		    limit:
+		        $('#footer').offset().top -
+		        $('#sidebar ul').outerHeight() -
+		        10
+		});
+ 	}
+ }
+ 
+ Juice.sidebar.makeFlexible = function(){
+ 	Juice.console.add( "sidebar.makeFlexible", Juice.sidebar.isFlexible );
+ 	if( Juice.sidebar.isFlexible ) return;
+ 	
+ 	Juice.sidebar.isFlexible = true;
+ 	
+ 	if( !$('#sidebar ul').length ){ return; }
+ 	
+ 	// null or false
+ 	$('#sidebar ul').scrollToFixed({
+		   marginTop:
+	     $('.header').outerHeight() + 15,
+		    limit:
+		        $('#footer').offset().top -
+		        $('#sidebar ul').outerHeight() -
+		        10
+	});
+ 	
+ 	
+ }
+ 
+ Juice.sidebar.makeFixed = function(){
+ 	Juice.console.add( "sidebar.makeFixed", Juice.sidebar.isFlexible );
+ 	if( Juice.sidebar.isFlexible === false ) return;
+ 	
+ 	Juice.sidebar.isFlexible = false;
+ 	
+ 	if( !$('#sidebar ul').length ){ return; }
+ 	
+ 	$('#sidebar ul').trigger('remove');	// remove scrolltofixed features...
+ 	
+ }
+ 
+ /**
+  * console verbose message handler
+  */
  Juice.console = {items:[]};
  Juice.console.add = function( k,v ){
  	Juice.console.items.push({k:k,v:v});
@@ -110,19 +173,24 @@
  }
   
  Juice.resize = function(){
- 	Juice.adapt.sidebar(); 	
+ 	// Juice.adapt.sidebar(); 	
  }
  
  /** activate the dom element. add a class currentPage to the given element
  */
  Juice.navigation.spy = function( id ){
+ 	if( !id ) return;
  	if( Juice.navigation.previous != undefined ){
  		Juice.navigation.previous.removeClass( "currentPage" );	
  	}
  	
+ 	console.log( id, $( '[href$="#'+id+'"]' ) );
  	Juice.navigation.previous = $( '[href$="#'+id+'"]').parent().addClass( "currentPage");
  	// window.location.hash = "#" + id;
  }
+ 
+ 
+ 
  
  /**
   * activate the smooth scrolling. bind click events.
@@ -161,15 +229,7 @@
         }
     });
     
-    // fixed sidebar
-    $('#sidebar ul').scrollToFixed({
-	    marginTop:
-	        $('.header').outerHeight() + 15,
-	    limit:
-	        $('#footer').offset().top -
-	        $('#sidebar ul').outerHeight() -
-	        10
-	});
+    
 	
 	// sroll spy sidebar
 	$('#page a').each( function(i){

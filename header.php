@@ -24,8 +24,10 @@
 	<noscript><link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/adapt/mobile.min.css" /></noscript><!-- noscript grid -->
 	<script type="text/javascript">var ADAPT_CONFIG={path:'<?php bloginfo('template_directory'); ?>/css/adapt/',callback:function(i,width){try{
 		Juice.adapt.update(i,width)
-		}catch(error){}},dynamic:true,range:['0px    to 980px  = mobile.css', '980px  to 1280px = 960.min.css','1280px to 1600px = 1200.min.css','1600px to 1940px = 1560.min.css','1940px to 2540px = 1920.min.css','2540px = 2520.min.css']};
+		}catch(error){}},dynamic:true,range:['0px    to 960px  = mobile.css', '960px  to 1080px = 960.css', '1080px  to 1280px = 960.min.css','1280px to 1600px = 1200.min.css','1600px to 1940px = 1560.min.css','1940px to 2540px = 1920.min.css','2540px = 2520.min.css']};
 	</script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/juice-0.0.js"></script>
+	
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/adapt.min.js"></script><!-- adapt js, cfr. http://adapt.960.gs/ -->
 	
 	<!-- Add the favicon -->
@@ -44,7 +46,6 @@
 	
 	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/juice-0.0.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/juice-chrono.js""></script><!-- scrollto plugin -->
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-scrollto.js""></script><!-- scrollto plugin -->
 	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-scrolltofixed.js""></script><!-- scrollto plugin -->
@@ -175,14 +176,20 @@
 					<!-- note: absolute positioned logout -->
 					<div id="logout-outer">
 						<div id="logout-inner">
-							<a href="<?php echo  get_admin_url()?>">admin</a>
-							<a href="<?php echo wp_logout_url( home_url() )?>">logout</a>
+							<div>
+								<a title="enter administration interface" href="<?php echo  get_admin_url()?>">admin</a>
+							</div>
+							<div class="splitter">
+								<a title="logout user -- __-<?php echo wp_get_current_user()->user_login ?>-__" href="<?php echo wp_logout_url( home_url() )?>">logout</a>
+							</div>
 						</div>
 					</div>
 						
 						
-					<?php endif; ?>
+				<?php endif; ?>
 				</div>
+				
+				
 			</div>
 			<div class="clear"></div>
 		</header>

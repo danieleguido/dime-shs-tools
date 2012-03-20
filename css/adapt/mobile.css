@@ -35,7 +35,7 @@ section #sidebar{
 	z-index: 0;
 	color: white;
 	background:none;
-	width:100px;
+	width:104px;
 	overflow:hidden;
 	margin:0;
 	padding:0;
@@ -48,7 +48,13 @@ section #page{
 	
 }
 section #sidebar .allPage{
-	height: auto;	
+	height: auto;
+	margin-left:10px;	
+}
+#sidebar ul{
+	border-top: 7px solid #393D49;
+	border-right: 7px solid #393D49;		
+	border-bottom: 7px solid #393D49;
 }
 #sidebar li{
 	background: #e1e1e1;	
@@ -56,7 +62,42 @@ section #sidebar .allPage{
 #sidebar li .currentPage{
 	background: #f1f1f1;	
 	border-left: none;
+	margin-left:0px;
+	padding-left:20px
 }
 #logomoto{
 	display:none;	
+}
+#menu-settings ul{
+	padding-left:10px;	
+}
+
+#logout-outer{
+	left:0;		
+}
+#logout-inner{
+	background: red;	
+}
+
+#page article	div{
+		-moz-column-count: 1;
+		-moz-column-gap: @grid-padding * 4;
+		-webkit-column-count: 1;
+		-webkit-column-gap: @grid-padding * 4;
+		column-count: 1;
+		column-gap: @grid-padding * 4;	
+		text-align: left;
+		padding-right:20px;
+}
+
+#menu-pages-outer{
+	float:left;	
+}
+
+a#other-projects{
+	top:100px;
+	left:5px;
+	width:32px;
+	height:32px;
+	line-height:32px;
 }
