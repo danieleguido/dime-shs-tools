@@ -262,16 +262,18 @@ h3{
 					}
 				}
 			}
+			.icon{
+				width: 40px;
+				height: 40px;
+				margin-left: -20px;		
+				margin-top: @grid-padding;	
+			}
 			&.en{
 				&:hover .icon{
 					.sprited( @menu-pages-x + @menu-settings-shift-x , @menu-settings-y );
 				}
 				.icon{
-					.sprited( @menu-pages-x + @menu-settings-shift-x *2, @menu-settings-y );
-					width: 40px;
-					height: 40px;
-					margin-left: -20px;		
-					margin-top: @grid-padding;	
+					.sprited( @menu-pages-x + @menu-settings-shift-x *2, @menu-settings-y );	
 				}	
 			}
 			&.fr{
@@ -280,9 +282,7 @@ h3{
 				}
 				.icon{
 					.sprited( @menu-pages-x + @menu-settings-shift-x *2, @menu-settings-y  + @menu-settings-shift-y  );
-					width: 40px;
-					height: 40px;
-					margin-left: -20px;			
+							
 				}	
 			}
 		}

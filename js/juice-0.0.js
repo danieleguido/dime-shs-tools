@@ -4,7 +4,7 @@
  * build a solid websocket architecture).
  */
  /* the desription*/
- var Juice = { adapt:{}, tooltip:{}, scroll:{}, navigation:{}, language:{}};
+ var Juice = { adapt:{}, tooltip:{}, scroll:{}, navigation:{}, language:{ }};
  
  /* call this function on your window.onload method */
  Juice.init = function(){
@@ -33,7 +33,12 @@
  /** using .alternate object, display and allow language switch */
  Juice.language.init = function(){
  	$( "#menu-language" ).mouseenter( function(){
- 		$("#menu-language .alternate").show()	
+ 		
+ 		var mla = $("#menu-language .alternate");
+ 		mla.show();
+ 		mla.css("left", ( $("#menu-language").width() - mla.width() )/ 2 );
+ 		
+ 			
  	}).mouseleave( function(){
  		$("#menu-language .alternate").hide()
  	});
