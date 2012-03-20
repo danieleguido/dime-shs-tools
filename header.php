@@ -66,9 +66,9 @@
 
 <body <?php body_class(); ?>>
 	
-	<a href="//sciencespo.fr/dime-shs" title="" id="dime-shs-family" style="cursor: pointer; "></a>
+	<a href="#" title="quanti tools" id="dime-shs-family" style="cursor: pointer; "></a>
 
-	<a href="#" title="other projects" id="other-projects">+</a>
+	<!-- a href="#" title="other projects" id="other-projects">+</a -->
 	
 	<div id="the-others" class="container_12">
 		<div class="grid_12">
@@ -96,7 +96,7 @@
 				<div id="logo-outer" class="grid_3 outer outer_gain_1">
 					<a href="logo"><div id="logo"></div></a><!-- the logo -->
 				</div> 
-				<div id="menu-pages-outer" class="grid_8 outer "><!-- the page menu -->
+				<div id="menu-pages-outer" class="grid_7 outer "><!-- the page menu -->
 					<div id="menu-pages" class="inner">
 						 
 						<ul>
@@ -124,7 +124,7 @@
 						</ul>
 					</div>
 				</div>
-				<div id="menu-settings-outer" class="grid_1 outer outer_gain_3"><!-- the page menu -->
+				<div id="menu-settings-outer" class="grid_2 outer outer_gain_3"><!-- the page menu -->
 					<div id="menu-settings" class="inner">
 						<ul>
 				

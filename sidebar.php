@@ -21,7 +21,7 @@
 							
 							foreach( get_posts( 'category_name=apps' ) as $post ){
 								echo '
-								<li style="border-top: 1px solid gainsboro;margin-top:10px; padding-top: 10px">
+								<li style="padding: 10px 0 10px 7px">
 									<div class="application">
 									<a href="#'.$post->post_name.'">'.$post->post_content.'</a>
 									</div>

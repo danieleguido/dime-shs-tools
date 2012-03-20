@@ -19,7 +19,7 @@
 	Juice.language.init(); // startr language
 	Juice.console.log(); // printout init logging
 	
-	$("#other-projects").click( Juice.projects.toggle );
+	$("#dime-shs-family").click( Juice.projects.toggle );
  }
  
  Juice.adapt.init = function(){
@@ -136,11 +136,11 @@
  Juice.projects.toggle = function(){
  	if ( Juice.projects.hidden ){
  		Juice.projects.hidden = false;
- 		$("#other-projects").attr("title","").text("-");
+ 		$("#dime-shs-family").attr("title","").text("-");
  		Juice.projects.show();
  	} else {
  		Juice.projects.hidden = true;
- 		$("#other-projects").attr("title","other projects").text("+");
+ 		$("#dime-shs-family").attr("title","other projects").text("+");
  		Juice.projects.hide();	
  	}
  }

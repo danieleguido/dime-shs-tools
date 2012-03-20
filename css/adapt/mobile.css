@@ -72,8 +72,11 @@ section #sidebar .allPage{
 	padding-left:10px;	
 }
 
-#logout-outer{
-	left:0;		
+#menu-settings-outer #logout-outer{
+	left:0;	
+	margin-left: 55px;
+	margin-top: 5px;
+		
 }
 #logout-inner{
 	background: red;	
