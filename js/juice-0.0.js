@@ -151,7 +151,7 @@
  }
  
  Juice.projects.hide = function(){
-	$("#the-others").animate({"margin-top":-50},150);			
+	$("#the-others").animate({"margin-top":-55},150);			
  }
 		
  Juice.tooltip.init = function(){

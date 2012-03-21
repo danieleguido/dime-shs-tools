@@ -74,6 +74,7 @@
 		<div class="grid_12">
 			<div id="the-others-outer">
 				<div id="the-others-inner">
+					<img src="<?php bloginfo('template_directory'); ?>/img/tools-logo.png" >
 					<ul>
 						<!--
 						<li {% if tool = "bequali" %}class="selected"{% endif %}><a href="/reanalyse" title="_-dime-shs quali-_ -- __-BEQUALI-__ -- a wonderful tool for gaming">BeQuali</a></li>
