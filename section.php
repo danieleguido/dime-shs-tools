@@ -2,21 +2,21 @@
 /*
 Template Name Posts: Section
 */
-
+$single_category = get_the_category();
 get_header(); ?>	
 <?php // unabled, testget_sidebar(); ?>
 
 <!-- categories show please -->
 <?php 
-	$category = get_the_category();
+	
 	 
 	$args = array( 
-		"category"=>$category[0]->cat_ID 
+		"category"=>$single_category[0]->cat_ID 
 	);
 	$posts = get_posts( $args );
 ?>
 
-<!-- categories show please -->
+<!-- section: post should always bring user here. show please -->
 		<section>
 			<div id="view" class="grid_12">
 				<div id="sidebar-outer" class="grid_3 outer">

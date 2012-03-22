@@ -77,13 +77,13 @@
 					<img src="<?php bloginfo('template_directory'); ?>/img/tools-logo.png" style="float:left">
 					<ul>
 						<li<?php echo $less_theme == "quali"? ' class="selected"':'' ?>>
-							<a href="/bequali#suite" title="_-dime-shs quali-_ -- __-QUALI-__ -- the final suite for archive exploration, text analysis.">BeQuali</a>
+							<a href="/bequali#suite" title="_-dime-shs-_ -- __-QUALI-__ -- the final suite for archive exploration, text analysis.">BeQuali</a>
 						</li>
 						<li<?php echo $less_theme == "quanti"? ' class="selected"':'' ?>>
-							<a href="/quanti#suite" title="_-dime-shs quanti-_ -- __-QUANTI-__ -- the magic suite for surveys data management">BeQuanti</a>
+							<a href="/quanti#suite" title="_-dime-shs-_ -- __-QUANTI-__ -- the magic suite for surveys data management">BeQuanti</a>
 						</li>
 						<li<?php echo $less_theme == "web"? ' class="selected"':'' ?>>
-							<a href="/web#suite" title="_-dime-shs quali-_ -- __-WEB-__ -- the wonderful suite for -- web corpora management, web crawls, networks...">BeWeb</a>
+							<a href="/web#suite" title="_-dime-shs-_ -- __-WEB-__ -- the wonderful suite for -- web corpora management, web crawls, networks...">BeWeb</a>
 						</li>
 					</ul>
 				</div>
@@ -114,10 +114,19 @@
 							);
 							
 							$categories=get_categories($args);
-																					
+							
+							$selected_term_id = -1;
+							if( is_single() ){
+								global $single_category; // category of the given post, cfr section.php (a post template)
+								// get the category of single
+								$selected_term_id =  $single_category[0]->term_id;
+							}
+							
+							
+												
 							foreach($categories as $k=>$category) { 
 								echo '
-									<li class="menu-' . $category->slug . ( is_category( $category->term_id )? " menuCurrent": ( $k == 0 && is_home()?" menuCurrent":"" ) ) .' ">
+									<li class="menu-' . $category->slug . ( is_category( $category->term_id ) || $selected_term_id == $category->term_id ? " menuCurrent": ( $k == 0 && is_home()?" menuCurrent":"" ) ) .' ">
 										<div class="icon-outer"><div class="icon"></div></div>
 										<a href="' . get_category_link( $category->term_id ) . '" title="' . $category->description . '">' . $category->name.'</a>
 									</li>	
