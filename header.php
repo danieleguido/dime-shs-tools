@@ -59,7 +59,7 @@
 			Juice.init();
 		});
 		$(window).resize(function() {
-			Juice.resize();
+			Juice.resize.update();
 		});
 	</script>
 </head>

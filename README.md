@@ -8,3 +8,18 @@ To install this theme, download this folder and install it inside your wordpress
 
 ## plugins dependences
 This themes should be used with some useful plugin.
+qTransalte : translation plugin to activate language switch
+
+## style configurations, images etc..
+Theme stylesheet are .less files that extends a boilerplate.less file.
+Themes and Boilerplate are stored under 
+	~/css/themes.
+
+We make use of adapt js lib to adjust the size and positioning of elements onto our 960 grid.
+Adapt related stylesheets are stored under 
+	~/css/adapt
+
+All images - logos, borders, flags… - are collected into a unique "sprite" image, one for each sub-theme. 
+The url is described at the very top of each .less file, and the images are stored under 
+	~/img folders
+

@@ -171,9 +171,20 @@
  	// check for window boundaries!!!
  	
  }
-  
- Juice.resize = function(){
- 	// Juice.adapt.sidebar(); 	
+ 
+ Juice.resize = {};
+ 
+ Juice.resize.update = function(){
+ 	// Juice.adapt.sidebar();
+ 	if( Juice.resize.timer ){
+ 		clearTimeout( Juice.resize.timer );
+ 	}
+ 	Juice.resize.timer = setTimeout( Juice.resize.adapt, 200 ); // min time threshold 	
+ }
+ 
+ Juice.resize.adapt = function(){
+ 	Juice.console.add( "resize.adapt", "adapt sidebar" );
+ 	Juice.adapt.sidebar();
  }
  
  /** activate the dom element. add a class currentPage to the given element
