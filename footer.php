@@ -19,11 +19,11 @@
 							<div id="sciencespo-logo" class="floating"></div>
 							<div id="dimishs-logo" class="floating"></div>
 							<div id="hci-logo" class="floating"></div>
-							<?php
+							<!-- <?php
 						$options = get_option('sample_theme_options');
     						print_r($options);
 							
-						?>
+						?>-->
 						
 						</div>
 						
