@@ -56,6 +56,10 @@ body{
 	}
 }
 
+a{
+	color: @base-color;	
+	&:hover{}
+}
 
 .container_12{
 	margin-left: 100px;
@@ -201,13 +205,13 @@ h3{
 	}
 	
 	ul{
-		height: @the-others-height - @grid-padding;
+		height: @the-others-height - @grid-padding / 2;
 		display:block;
 		li{
 			margin: 0 @grid-padding / 2;
 			display:inline-block;
 			border-bottom:@grid-padding/2 solid transparent;
-			height: @the-others-height - @grid-padding;
+			height: @the-others-height - @grid-padding / 2;
 			a{
 				color: @header-background;
 				display:block;

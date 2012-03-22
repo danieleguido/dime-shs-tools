@@ -74,13 +74,17 @@
 		<div class="grid_12">
 			<div id="the-others-outer">
 				<div id="the-others-inner">
-					<img src="<?php bloginfo('template_directory'); ?>/img/tools-logo.png" >
+					<img src="<?php bloginfo('template_directory'); ?>/img/tools-logo.png" style="float:left">
 					<ul>
-						<!--
-						<li {% if tool = "bequali" %}class="selected"{% endif %}><a href="/reanalyse" title="_-dime-shs quali-_ -- __-BEQUALI-__ -- a wonderful tool for gaming">BeQuali</a></li>
-						<li {% if tool = "pquanti" %}class="selected"{% endif %}><a href="/dime-shs/quanti#suite" title="_-dime-shs quali-_ --  PQUANTI -- the basic panel management ever">bquanti</a></li>
-						<li {% if tool = "hci" %}class="selected"{% endif %}><a title="hci web" href="/dime-shs/hci#suite">hci</a></li>-->
-						&nbsp;
+						<li<?php echo $less_theme == "quali"? ' class="selected"':'' ?>>
+							<a href="/bequali#suite" title="_-dime-shs quali-_ -- __-QUALI-__ -- the final suite for archive exploration, text analysis.">BeQuali</a>
+						</li>
+						<li<?php echo $less_theme == "quanti"? ' class="selected"':'' ?>>
+							<a href="/quanti#suite" title="_-dime-shs quanti-_ -- __-QUANTI-__ -- the magic suite for surveys data management">BeQuanti</a>
+						</li>
+						<li<?php echo $less_theme == "web"? ' class="selected"':'' ?>>
+							<a href="/web#suite" title="_-dime-shs quali-_ -- __-WEB-__ -- the wonderful suite for -- web corpora management, web crawls, networks...">BeWeb</a>
+						</li>
 					</ul>
 				</div>
 			</div>
