@@ -10,8 +10,9 @@ get_header(); ?>
 <?php 
 	$category = get_the_category();
 	 
+	// the very last category among the category list
 	$args = array( 
-		"category"=>$category[0]->cat_ID 
+		"category"=>array_pop( $category )->term_id 
 	);
 	$posts = get_posts( $args );
 	
@@ -26,7 +27,9 @@ get_header(); ?>
 				</div>
 				<div id="page-outer" class="grid_9 outer">
 					<div id="page" class="inner">
+					
 					<?php
+						
 						foreach( $posts as $post ){
 							// loop using custom template. to be improved, of course.
 							echo '
