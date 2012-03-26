@@ -2,7 +2,8 @@
 /*
 Template Name Posts: Section
 */
-$single_category = get_the_category();
+$single_category = get_the_category( );
+
 get_header(); ?>	
 <?php // unabled, testget_sidebar(); ?>
 
@@ -24,6 +25,7 @@ get_header(); ?>
 				</div>
 				<div id="page-outer" class="grid_9 outer">
 					<div id="page" class="inner">
+					
 					<?php
 						foreach( $posts as $post ){
 							// loop using custom template. to be improved, of course.

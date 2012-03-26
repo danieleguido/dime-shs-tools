@@ -119,7 +119,7 @@
 							if( is_single() ){
 								global $single_category; // category of the given post, cfr section.php (a post template)
 								// get the category of single
-								$selected_term_id = array_pop( $single_category )->term_id;
+								$selected_term_id = $single_category[0]->term_id;
 								
 								
 							}

@@ -59,6 +59,17 @@ body{
 a{
 	color: @base-color;	
 	&:hover{}
+	&.edit{ // edit content link
+		background: darken( @page-background, 5% );
+		float: right;
+		padding: .2em .4em;
+		.rounded-corners(3px);
+		text-transform: uppercase;
+	}
+	&.edit:hover{
+		background: darken( @page-background, 10% );
+		color: @page-border;
+	}
 }
 
 .container_12{
@@ -464,15 +475,26 @@ section{
 }
 
 article{
-	div{
-		-moz-column-count: 2;
-		-moz-column-gap: @grid-padding * 4;
-		-webkit-column-count: 2;
-		-webkit-column-gap: @grid-padding * 4;
-		column-count: 2;
-		column-gap: @grid-padding * 4;	
-		text-align: justify;
+	img{
+		float:left; padding:@grid-padding;
+		margin: @grid-padding;	
+		background: lighten( @page-background, 2%);
+		border:1px solid darken( @page-background, 2%);
 	}	
+	
+	text-align: justify;
+	
+	&.columnized{
+		div{
+			-moz-column-count: 2;
+			-moz-column-gap: @grid-padding * 4;
+			-webkit-column-count: 2;
+			-webkit-column-gap: @grid-padding * 4;
+			column-count: 2;
+			column-gap: @grid-padding * 4;	
+			
+		}	
+	}
 }
 
 // FOOTER generic logos

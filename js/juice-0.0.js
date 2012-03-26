@@ -53,7 +53,7 @@
  	if ( Juice.sidebar.isFlexible ) {
  		$('#sidebar ul').scrollToFixed({
 		   marginTop:
-	     $('.header').outerHeight() + 15,
+	     $('.header').outerHeight() + 25,
 		    limit:
 		        $('#footer').offset().top -
 		        $('#sidebar ul').outerHeight() -
