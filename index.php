@@ -19,12 +19,12 @@ get_header(); ?>
 <!-- categories show please -->
 <!-- categories show please -->
 <?php 
-	$category = get_the_category();
+	$category = get_category_by_slug( 'project' );
 	
 	// get the very first category
 	
 	$args = array( 
-		"category"=>$category[0]->cat_ID 
+		"category"=>$category->term_id 
 	);
 	$posts = get_posts( $args );
 	
