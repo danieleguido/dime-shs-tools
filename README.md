@@ -16,8 +16,8 @@ The category slug name provides a quick way to implement already emxisting icons
 ## plugins dependences
 This themes should be used with some useful plugin.
 1.	qTransalte : translation plugin
-2.	category order (top menu)
-3.	post order (if used as content, categorized)
+2.	my category order (top menu) http://wordpress.org/extend/plugins/my-category-order/
+3.	post-types-order plugin (if used as content, categorized) http://wordpress.org/extend/plugins/post-types-order/
 
 ## style configurations
 A theme stylesheet is a .less files that extends a boilerplate.less file.  
