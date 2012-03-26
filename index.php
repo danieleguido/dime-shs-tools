@@ -13,7 +13,6 @@
  * @since Toolbox 0.1
  */
 
- 
 get_header(); ?>	
 <?php // unabled, testget_sidebar(); ?>
 
@@ -21,11 +20,14 @@ get_header(); ?>
 <!-- categories show please -->
 <?php 
 	$category = get_the_category();
-	 
+	
+	// get the very first category
+	
 	$args = array( 
 		"category"=>$category[0]->cat_ID 
 	);
 	$posts = get_posts( $args );
+	
 ?>
 
 <!-- categories show please -->
@@ -38,6 +40,7 @@ get_header(); ?>
 				<div id="page-outer" class="grid_9 outer">
 					<div id="page" class="inner">
 					<?php
+						
 						foreach( $posts as $post ){
 							// loop using custom template. to be improved, of course.
 							echo '

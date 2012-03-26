@@ -8,14 +8,10 @@ get_header(); ?>
 <?php // unabled, testget_sidebar(); ?>
 
 <?php 
-	$category = get_the_category();
-	 
-	// the very last category among the category list
 	$args = array( 
-		"category"=>array_pop( $category )->term_id 
+		"category"=>$wp_query->get_queried_object_id()
 	);
-	$posts = get_posts( $args );
-	
+	$posts = get_posts( $args );	
 ?>
 
 <!-- categories show please -->
