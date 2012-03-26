@@ -74,16 +74,19 @@
 		<div class="grid_12">
 			<div id="the-others-outer">
 				<div id="the-others-inner">
-					<img src="<?php bloginfo('template_directory'); ?>/img/tools-logo.png" style="float:left">
+					<!-- img src="<?php bloginfo('template_directory'); ?>/img/tools-logo.png" style="float:left" -->
 					<ul>
+						<li class="tools-overview">
+							<a href="http://sciencespo.fr/dimeshs" title="_-dime-shs tools-_ -- a brief explication, and some words about the three tools">dime shs tools</a>
+						</li>
 						<li<?php echo $less_theme == "quali"? ' class="selected"':'' ?>>
-							<a href="/bequali#suite" title="_-dime-shs-_ -- __-QUALI-__ -- the final suite for archive exploration, text analysis.">BeQuali</a>
+							<a href="/bequali#suite" title="_-dime-shs tool-_ -- __-QUALI-__ -- the final suite for archive exploration, text analysis.">Quali</a>
 						</li>
 						<li<?php echo $less_theme == "quanti"? ' class="selected"':'' ?>>
-							<a href="/quanti#suite" title="_-dime-shs-_ -- __-QUANTI-__ -- the magic suite for surveys data management">BeQuanti</a>
+							<a href="/quanti#suite" title="_-dime-shs tool-_ -- __-QUANTI-__ -- the magic suite for surveys data management">Quanti</a>
 						</li>
 						<li<?php echo $less_theme == "web"? ' class="selected"':'' ?>>
-							<a href="/web#suite" title="_-dime-shs-_ -- __-WEB-__ -- the wonderful suite for -- web corpora management, web crawls, networks...">BeWeb</a>
+							<a href="/web#suite" title="_-dime-shs tool-_ -- __-WEB-__ -- the wonderful suite for -- web corpora management, web crawls, networks...">Web</a>
 						</li>
 					</ul>
 				</div>

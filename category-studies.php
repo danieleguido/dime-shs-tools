@@ -1,27 +1,47 @@
-<?php
-		get_header();
+<?php 
+	get_header(); 
+
+	$args = array( 
+		"category"  => $wp_query->get_queried_object_id(),
+		"post_type" => "study"
+	);
+	$studies = get_posts( $args );	
 ?>
-		<!-- categories "study" -->
+		<!-- show studies ( post type studies inside category studies ) -->
 		<section>
 			<div id="view" class="grid_12">
 				<div id="sidebar-outer" class="grid_3 outer">
-				<?php get_sidebar ();?>
+					<?php get_sidebar ();?>
 				</div>
 				<div id="page-outer" class="grid_9 outer">
 					<div id="page" class="inner">
-					public studies
+					
+					<?php
+						
+						foreach( $studies as $post ){
+							$edit_link = is_user_logged_in()? '<a class="edit" href="'.get_edit_post_link( $post->id ).'" title="edit content">edit</a>':'';
+							
+							// loop using custom template. to be improved, of course.
+							echo '
+								<article>
+									'.$edit_link.'
+									<a id="'.$post->post_name.'">
+										<h1>'.$post->post_title.'</h1>
+									</a>
+									<div>
+										'.$post->post_content.'
+									</div>
+								</article>	
+							';
+
+						}
+					?>
 					</div>
 				</div>
 			</div>
 			<div class="clear"></div>
 		</section>
-		<script>
-			$(window).load(function(){
-				
-			});
-		</script>
+		
 
 
-<?php 
-		get_footer(); 
-?>
+<?php get_footer(); ?>

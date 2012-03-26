@@ -168,9 +168,9 @@ h3{
 	left:10px;
 	height:90px;
 	display:block;
-	.sprited( 26px, 128px);
+	.sprited( 26px, 1675px);
 	&:hover{
-		.sprited( 120px, 128px);
+		.sprited( 120px, 1675px);
 	}
 }
 
@@ -209,7 +209,7 @@ h3{
 	
 	#the-others-inner{
 		margin-left: 7px;
-		padding: 0 @grid-padding 0 @grid-padding;
+		padding: 0 @grid-padding 0 0;
 		background: lighten( @page-border, 5% );
 		text-shadow: 1px 1px @page-border;
 		height: @the-others-height - @grid-padding/2;
@@ -229,6 +229,11 @@ h3{
 				height:@the-others-height - @grid-padding*2;
 				padding: @grid-padding;	
 			}
+			&.tools-overview{
+				background: @page-border;
+				margin:0;
+				padding: 0;
+			}
 			&.selected{
 				border-bottom:@grid-padding/2 solid @base-color;	
 				background:lighten( @page-border, 8% );
@@ -247,25 +252,32 @@ h3{
 		
 }
 
-#menu-login{
-		.selected .icon{
-			.sprited( @menu-pages-x + @menu-settings-shift-x *2 , @menu-settings-y + @menu-settings-shift-y * 3 );
-		}
-
-		&:hover .icon {
-			.sprited( @menu-pages-x + @menu-settings-shift-x , @menu-settings-y + @menu-settings-shift-y * 3 );
-		}
-		
-		&.icon{ .sprited( @menu-pages-x, @menu-settings-y + @menu-settings-shift-y * 3 );
-				width: 40px;
-				height: 40px;
-				margin-left: -20px;			
-		}
-		
-		#logout{
-			color: @base-color;	
-		}	
+/*
+ * MENU SETTINGS
+ */
+// generic menu settings icon behaviour
+#menu-settings .icon{
+	width: 40px;
+	height: 40px;
+	margin-left: -20px;	
 }
+
+#menu-login{
+	.icon{
+		.sprited( @menu-pages-x, @menu-settings-y + @menu-settings-shift-y * 3 );
+	}
+	&.selected .icon{
+		.sprited( @menu-pages-x + @menu-settings-shift-x *2 , @menu-settings-y + @menu-settings-shift-y * 3 );
+	}
+	&:hover .icon {
+		.sprited( @menu-pages-x + @menu-settings-shift-x , @menu-settings-y + @menu-settings-shift-y * 3 );
+	}
+	
+	#logout{
+		color: @base-color;	
+	}
+}
+
 
 #menu-language{
 			.alternate-outer{
