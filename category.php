@@ -27,7 +27,7 @@ get_header(); ?>
 					<?php
 						
 						foreach( $posts as $post ){
-							$edit_link = is_user_logged_in()? '<a class="edit" href="'.get_edit_post_link( $post->id ).'" title="edit content">edit</a>':'nope';
+							$edit_link = is_user_logged_in()? '<a class="edit" href="'.get_edit_post_link( $post->id ).'" title="edit content">edit</a>':'';
 							
 							// loop using custom template. to be improved, of course.
 							echo '
